@@ -978,7 +978,7 @@
 			self.modaal_overlay('hide');
 
 			// Roll back to last focus state before modal open. If was closed programmatically, this might not be set
-			if (self.lastFocus != null) {
+			if (self.lastFocus != null && self.options.autoFocusAfterClose === true) {
 				self.lastFocus.focus();
 			}
 		},
@@ -1094,6 +1094,7 @@
 		close_aria_label: 'Close (Press escape to close)',
 		width: null,
 		height: null,
+        autoFocusAfterClose: true,
 
 		//Events
 		before_open: function(){},
@@ -1368,3 +1369,12 @@
 	});
 
 } ( jQuery, window, document ) );
+
+
+
+// jquery buld
+
+$('.video').modaal({
+	type: 'video',
+	autoFocusAfterClose: false
+});
